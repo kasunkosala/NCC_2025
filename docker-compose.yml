@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    container_name: ncc_helloworld
+    image: your-dockerhub-username/gscomp335:latest
+    command: ["java", "HelloWorld"]
