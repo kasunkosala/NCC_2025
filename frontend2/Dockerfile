@@ -1,13 +1,11 @@
-FROM node:18
+# Use Nginx image
+FROM nginx:alpine
 
-WORKDIR /app
+# Copy your HTML files into the nginx html directory
+COPY . /usr/share/nginx/html
 
-COPY package*.json ./
+# Expose port 80
+EXPOSE 80
 
-RUN npm install
-
-COPY . .
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]

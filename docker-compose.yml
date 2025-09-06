@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   frontend:
-    build: ./frontend
+    build: ./frontend2
     ports:
       - "3000:3000"
     depends_on:
@@ -11,16 +11,14 @@ services:
       - app-network
 
   backend:
-    build: ./backend
+    build: ./backend2
+    container_name: html_server
     ports:
       - "3001:3001"
-    depends_on:
-      - mongo
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
     networks:
       - app-network
-
-volumes:
-  mongo-data:
 
 networks:
   app-network:
