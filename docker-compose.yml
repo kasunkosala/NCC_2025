@@ -1,19 +1,19 @@
 version: "3.8"
 
 services:
-  frontend:
-    build: ./frontend2
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
-    networks:
-      - app-network
-
   backend:
     build: ./backend2
     ports:
-      - "3001:3001"
+      - "3000:3000"
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend2
+    ports:
+      - "3001:80"
+    depends_on:
+      - backend
     volumes:
       - ./html:/usr/share/nginx/html:ro
     networks:
