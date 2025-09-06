@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  springboot:
+    build:
+      context: ./backend2
+      dockerfile: Dockerfile
+    container_name: ncc_spring
+    ports:
+      - "8094:8094"
+    depends_on:
+      - nodeapp
+
+  nodeapp:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    container_name: ncc_node
+    ports:
+      - "3000:3000"
