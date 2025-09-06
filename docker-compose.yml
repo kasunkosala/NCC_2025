@@ -1,0 +1,19 @@
+# Docker Compose file for backend2 and frontend2
+version: '3.8'
+services:
+  backend:
+    build: ./backend2
+    ports:
+      - "8080:8080"
+    working_dir: /app
+    volumes:
+      - ./backend2:/app
+    depends_on:
+      - frontend
+  frontend:
+    build: ./frontend2
+    ports:
+      - "3000:80"
+    working_dir: /app
+    volumes:
+      - ./frontend2:/app
