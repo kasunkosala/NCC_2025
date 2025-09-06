@@ -1,7 +1,7 @@
-# Dockerfile for backend2 (Node.js/Java)
-FROM openjdk:17-jdk-slim
+FROM node:18
 WORKDIR /app
+COPY package*.json ./
+RUN npm install
 COPY . .
-RUN ./mvnw package || mvn package
-EXPOSE 8080
-CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
+EXPOSE 3001
+CMD ["node", "server.js"]
