@@ -13,7 +13,7 @@ services:
   frontend:
     build: ./frontend2
     ports:
-      - "3000:3000"
+      - "3000:80"
     working_dir: /app
     volumes:
       - ./frontend2:/app

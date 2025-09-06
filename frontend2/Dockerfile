@@ -1,4 +1,4 @@
 # Dockerfile for frontend2 (static HTML)
 FROM nginx:alpine
 COPY . /usr/share/nginx/html
-EXPOSE 3000
+EXPOSE 80
