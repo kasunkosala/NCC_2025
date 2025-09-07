@@ -3,11 +3,11 @@ FROM maven:3.9.1-eclipse-temurin-17 AS build
 WORKDIR /app
 
 # Copy pom.xml and download dependencies
-COPY pom.xml .
+COPY backend2/pom.xml .
 RUN mvn -B dependency:go-offline
 
 # Copy source code
-COPY src ./src
+COPY backend2/src ./src
 RUN mvn -B -DskipTests package
 
 # Stage 2: Run with JDK 21
