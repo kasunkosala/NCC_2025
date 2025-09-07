@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./backend2
+      dockerfile: Dockerfile
+    image: vythursh/gscomp259:latest
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
